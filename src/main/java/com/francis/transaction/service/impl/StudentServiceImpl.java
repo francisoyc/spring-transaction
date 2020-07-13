@@ -58,6 +58,7 @@ public class StudentServiceImpl implements StudentService {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void test2() {
         studentDao.insert(getStudent("REQUIRES_NEW"));
+        // 如果需要演示内部事务不影响外部事务，在这里加上 int i = 1/0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -66,6 +67,14 @@ public class StudentServiceImpl implements StudentService {
         studentDao.insert(getStudent("REQUIRED"));
         getService().test2();
         int i = 1/0;
+
+        // 如果需要演示内部事务不影响外部事务，注释上面的代码，放开下面的代码
+        /*try {
+            getService().test2();
+        } catch (Exception e) {
+
+        }
+        studentDao.insert(getStudent("REQUIRED"));*/
     }
 
 

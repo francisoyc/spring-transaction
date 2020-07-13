@@ -1,0 +1,19 @@
+server.port: 8080
+spring:
+  application:
+    name: francis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.196.1:3306/francis?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+mybatis:
+  #type-aliases-package: com.example.demo.francis
+  #配置项：开启下划线到驼峰的自动转换. 作用：将数据库字段根据驼峰规则自动注入到对象属性。
+  configuration:
+    map-underscore-to-camel-case: true
+# 打印dao层debug级别日志
+logging:
+  level:
+    com.francis.transaction.dao: debug

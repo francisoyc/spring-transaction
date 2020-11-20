@@ -19,5 +19,3 @@ logging:
     com.francis.transaction.dao: debug
 
 
-
-
